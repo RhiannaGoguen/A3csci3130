@@ -10,18 +10,17 @@
                 "email": {
                     ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
                 },
-                  "business": {
-                  ".validate": "newData.isString() && (newData.val().matches(Fisher) || newData.val().matches(Distributor) || newData.val().matches(Processor) || newData.val().matches(Fish\sMonger))"
-                },
                 "address": {
                   ".validate": "newData.isString() && newData.val().length < 50"
                 },
-                "province": {
-                  ".validate": "newData.isString() && (newData.val().matches(NS) || newData.val().matches(NB) || newData.val().matches(AB) || newData.val().matches(BC) || newData.val().matches('MB') || newData.val().matches(NL) || newData.val().matches(NT) || newData.val().matches(NU) || newData.val().matches(ON) || newData.val().matches(PE) || newData.val().matches(QC) || newData.val().matches(SK) || newData.val().matches(YK))"
+								"business": {
+                  ".validate": "newData.isString() && (newData.val().contains('Processor') || newData.val().contains('Fisher') || newData.val().contains('Fish Monger') || newData.val().contains('Distributor'))"
                 },
-                
-				
+                "province": {
+                  ".validate": "newData.isString() && (newData.val().contains('NS') || newData.val().contains('AB') || newData.val().contains('BC') || newData.val().contains('NB') || newData.val().contains('NL') || newData.val().contains('PE') || newData.val().contains('QC') || newData.val().contains('ON') || newData.val().contains('SK') || newData.val().contains('MB') || newData.val().contains('NT') || newData.val().contains('NU') || newData.val().contains('YK'))"
+                }
+          			
             }
         }
-  }
+  	}
 }
