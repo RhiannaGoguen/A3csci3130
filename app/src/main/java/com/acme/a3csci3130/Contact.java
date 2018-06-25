@@ -14,23 +14,23 @@ import java.util.Map;
 
 public class Contact implements Serializable {
 
-    public  String uid;
-    public  String name;
-    public  String email;
-    public  String province;
+    public  String uid;             //User ID: for the Database
+    public  String name;            //Contact's name
+    public  String email;           //Contact's email address
+    public  String province;        //Contact's province/territory they operate in
+    public  String address;         //Contact's address
+    public  String business;        //Contact's business type
+    public  String businessNumber;  //Contact's business number
+
+    //Getters and setters
 
     public String getUid() {
         return uid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -38,7 +38,6 @@ public class Contact implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -46,7 +45,6 @@ public class Contact implements Serializable {
     public String getProvince() {
         return province;
     }
-
     public void setProvince(String province) {
         this.province = province;
     }
@@ -54,21 +52,23 @@ public class Contact implements Serializable {
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getBusinessNumber() {
+        return businessNumber;
+    }
+    public void setBusinessNumber(String businessNumber) {
+        this.businessNumber = businessNumber;
     }
 
     public String getBusiness() {
         return business;
     }
-
     public void setBusiness(String business) {
         this.business = business;
     }
-
-    public  String address;
-    public  String business;
 
     public Contact() {
         // Default constructor required for calls to DataSnapshot.getValue
@@ -89,31 +89,17 @@ public class Contact implements Serializable {
      *  Address of contact
      * @param business
      *  Type of business that contact has
+     * @param businessNumber
+     *  The business number
      */
-    public Contact(String uid, String name, String email, String province, String address, String business){
+    public Contact(String uid, String name, String email, String province, String address, String business, String businessNumber){
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.province = province;
         this.address = address;
         this.business = business;
+        this.businessNumber = businessNumber;
     }
 
-    /**
-     * Turns the current Contact Object into a map
-     * @return
-     *  A map containing the contents of the Contact Object
-     */
-    @Exclude
-    public Map<String, Object> toMap(){
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", uid);
-        result.put("name", name);
-        result.put("email", email);
-        result.put("address", address);
-        result.put("province", province);
-        result.put("business", business);
-
-        return result;
-    }
 }

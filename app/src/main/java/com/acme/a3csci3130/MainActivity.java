@@ -11,6 +11,11 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * The main Activity page. Shows a list of all the contacts and lets you select them to view their
+ * details, update their information or delete them and also lets you create a new Contact.
+ */
+
 public class MainActivity extends Activity {
 
 
@@ -52,12 +57,22 @@ public class MainActivity extends Activity {
         });
     }
 
+    /**
+     * Switches to the create Contact Activity when the create contact button is clicked.
+     * @param v
+     *  Unused
+     */
     public void createContactButton(View v)
     {
         Intent intent=new Intent(this, CreateContactAcitivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Switches to the detailed view Activity when a Contact in the listView is selected.
+     * @param person
+     *  The Contact selected
+     */
     private void showDetailView(Contact person)
     {
         Intent intent = new Intent(this, DetailViewActivity.class);

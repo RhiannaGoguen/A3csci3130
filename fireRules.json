@@ -18,6 +18,9 @@
                 },
                 "province": {
                   ".validate": "newData.isString() && (newData.val().contains('NS') || newData.val().contains('AB') || newData.val().contains('BC') || newData.val().contains('NB') || newData.val().contains('NL') || newData.val().contains('PE') || newData.val().contains('QC') || newData.val().contains('ON') || newData.val().contains('SK') || newData.val().contains('MB') || newData.val().contains('NT') || newData.val().contains('NU') || newData.val().contains('YK'))"
+                },
+                "businessNumber": {
+                  ".validate": "newData.isString() && newData.val().length == 9 && newData.val().matches(/^[0-9]{9}$/i)"
                 }
           			
             }

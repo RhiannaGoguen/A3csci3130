@@ -9,10 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+/**
+ * This activity lets you create a new contact, inputting in all the parameters you need to.
+ * If one of these parameters does not follow the firebase rules, the contact is not created.
+ */
+
 public class CreateContactAcitivity extends Activity {
 
     private Button submitButton;
-    private EditText nameField, emailField, addressField;
+    private EditText nameField, emailField, addressField, numberField;
     private Spinner businessList, provinceList;
     private MyApplicationData appState;
 
@@ -27,6 +32,7 @@ public class CreateContactAcitivity extends Activity {
         nameField = (EditText) findViewById(R.id.name);
         emailField = (EditText) findViewById(R.id.email);
         addressField = (EditText) findViewById(R.id.address);
+        numberField = (EditText) findViewById(R.id.businessNumber);
 
         businessList = (Spinner) findViewById(R.id.business);
         provinceList = (Spinner) findViewById(R.id.province);
@@ -54,7 +60,8 @@ public class CreateContactAcitivity extends Activity {
         String address = addressField.getText().toString();
         String province = String.valueOf(provinceList.getSelectedItem());
         String business = String.valueOf(businessList.getSelectedItem());
-        Contact person = new Contact(personID, name, email, province, address, business);
+        String businessNumber = numberField.getText().toString();
+        Contact person = new Contact(personID, name, email, province, address, business, businessNumber);
 
         appState.firebaseReference.child(personID).setValue(person);
 
